@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hangar_slots_form" model="ir.ui.view">
+        <field name="name">hangar.slots.form</field>
+        <field name="model">hangar.manager.slots</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="price"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hangar_slots_tree" model="ir.ui.view">
+        <field name="name">hangar.slots.tree</field>
+        <field name="model">hangar.manager.slots</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_hangar_slots" model="ir.actions.act_window">
+        <field name="name">Slots</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hangar.manager.slots</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_filter_child':1}</field>
+    </record>
+
+    <menuitem id="menu_hangar_slots"
+              name="Slots"
+              parent="menu_hangar_root"
+              action="action_hangar_slots"
+              sequence="10"/>
+</odoo>
